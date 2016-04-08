@@ -787,6 +787,9 @@
 	BOOL isConsoleSession = [[NSApp currentEvent] modifierFlags] | NSShiftKeyMask;
 	NSInteger port;
 		
+	if ([address length] == 0)
+		return;
+
 	CRDSplitHostNameAndPort(address, &hostname, &port);
 	
 	
