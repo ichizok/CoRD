@@ -329,9 +329,9 @@ static NSColor *static_highlightedBoldColor, *static_normalBoldColor,
 	status = connStatus;
 
 	if (status == CRDConnectionConnecting)
-        [progressIndicator startAnimation:self];
+        [progressIndicator performSelectorOnMainThread:@selector(startAnimation:) withObject:self waitUntilDone:NO];
     else
-        [progressIndicator stopAnimation:self];
+        [progressIndicator performSelectorOnMainThread:@selector(stopAnimation:) withObject:self waitUntilDone:NO];
 }
 
 @end
